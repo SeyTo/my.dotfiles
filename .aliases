@@ -1,0 +1,33 @@
+AROOT='/a'
+PROJECTROOT=$AROOT/_proj
+SCRIPT=$HOME/scripts
+alias sv='sudo -E vim'
+alias v=vim
+alias r=vim -R
+alias stfu="shutdown -P now"
+alias c='cd ..'
+alias q=exit
+alias xx=startx
+alias x=xdg-open
+alias t=tmux
+alias py=python3.6
+alias ipr="ip route get 1"
+alias ty="typora "
+alias goals="x $AROOT/me/_docs/goals.html"
+alias me="cd $AROOT/me/_docs; ls -w 3"
+alias gre="$SCRIPT/utils/grepquick.sh "
+alias k="ls -1"
+
+# systemctl commands
+alias serve="sudo systemctl start"
+alias sserve="sudo systemctl stop"
+alias rserve="sudo systemctl restart"
+alias vserve="systemctl -t service"
+
+# w3m
+alias google="w3m -M -graph google.com"
+alias duck="w3m -M -graph duckduckgo.com"
+
+#scripts
+. "$SCRIPT/.aliases" $SCRIPT $PROJECTROOT
+

@@ -1,0 +1,84 @@
+*transparent: true
+*tintColor: #d3e4f1
+*shading: 170
+*saveLines: 12000
+# *font: xft:Roboto Mono Medium for Powerline:pixelsize=14:antialias=true:hinting=true
+# Fix font space
+*letterSpace: -1
+*font: xft:Operator Mono Book:bold:pixelsize=16:antialias=true:hinting=true
+# *font: xft:Operator Mono Bold Italic:bold:italic:pixelsize=16:antialias=true:hinting=true
+*boldFont: xft:Operator Mono Bold:bold:italic:pixelsize=16:antialias=true:hinting=true
+*scrollBar: false
+*scrollBar_right: false
+*scrollstyle: rxvt
+*internalBorder: 18
+*blurRadius: 14
+*cursorBlink: false
+*pointerBlank: false
+# black #0b121c
+# blue light #1b9bff
+# blue #156abd
+# dark blue #0e3959
+# darker blue #0c3a68
+# white #d3e4f1
+# yellow #1cff95
+
+*cursorColor: white
+*cursorColor2: white
+*background: #d3e4f1
+*foreground: #0b121c
+# .colorBD: #81f4e1
+# .colorIT: #81f4e1
+# .colorUL: #81f4e1
+# .colorRV: #81f4e1
+*underlineColor: #1cff95
+*scrollColor: Green
+*troughColor: Green
+# .highlightColor: #2ba9fb
+# .highlightTextColor: #cccccc
+# .pointerColor: Green
+# .pointerColor2: Green
+# .borderColor: Green
+*pointerColorBackground: #586e75
+*pointerColorForeground: #93a1a1
+
+Xft.hintstyle: hintslight
+
+# Perl extensions
+*perl-ext-common:      default,matcher
+*matcher.button:       1
+*urlLauncher:          firefox
+
+
+# black dark/light
+# *color0: #073642
+# *color8: #002b36
+# 
+# red dark/light
+# *color1: #dc322f
+# *color9: #cb4b16
+
+# green dark/light (values black, green)
+*color2:  #0c0307
+*color10: #090b05
+
+# yellow dark/light
+*color3:  #1cff95
+*color11: #0c3a68
+
+# blue dark/light
+*color4:  #156abd
+*color12: #0c3a68
+
+# ## magenta dark/light
+# *color5: #d33682
+# *color13: #6c71c4
+# 
+# ## cyan dark/light
+*color6: #a5a5a5
+*color14: #ced3dc
+
+# ## white dark/light
+*color7:  white
+*color15: black
+

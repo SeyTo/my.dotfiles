@@ -1,0 +1,23 @@
+{
+  "libs": [
+    "browser",
+    "ecma5"
+  ],
+  "loadEagerly": [
+    ""
+  ],
+  "plugins": {
+    "complete_strings": {},
+    "node": {},
+    "requirejs": {
+      "baseUrl": "./"
+    }, 
+    "commonjs": {},
+    "doc_comment": {
+      "fullDocs": true
+    },
+    "webpack": {
+      "configPath": "./build/webpack.base.conf.js"
+    }
+  }
+}
