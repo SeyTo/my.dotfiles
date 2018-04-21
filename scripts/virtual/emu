@@ -1,0 +1,50 @@
+#!/bin/bash
+
+EMU_BASE=$HOME/.android/avd/
+EMU=Nexus_5X_API_23
+SSH=false
+
+if [ ! -d $ANDROID_HOME ]; then
+  echo no android home found
+  exit
+fi
+
+options='e:s'
+while getopts $options option
+do
+    case $option in
+        e  )    EMU=$OPTARG;echo selected avd: $OPTARG;;
+        s  )    SSH=true;;
+        \? )    if (( (err & ERROPTS) != ERROPTS ))
+                then
+                    error $NOEXIT $ERROPTS "Unknown option."
+                fi;;
+        *  )    error $NOEXIT $ERROARG "Missing option argument.";;
+    esac
+done
+
+# shift $(($OPTIND - 1))
+# echo $@
+
+# if [ -n $emulator ]; then
+#   echo emu = $emulator
+# fi
+
+echo $EMU_BASE$EMU.avd
+# check if avd exists
+if [ -d "$EMU_BASE$EMU.avd" ]; then
+  echo avd found
+  # -use-system-libs; libstdc++.so.6 not detected. Mostly, 'out of index' errors. This will instead use whatever is already in the system.
+  $ANDROID_HOME/emulator/emulator -avd $EMU -use-system-libs &
+
+  if [ $SSH = true ]; then
+    sleep 3s
+    ssh -L 5556:localhost:5555 -p 39769 -N -o GatewayPorts=yes rj@krakken
+  fi
+
+else
+  echo avd not found
+fi 
+
+
+# start ssh after some time

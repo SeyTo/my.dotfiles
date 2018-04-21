@@ -1,0 +1,14 @@
+# script aliases
+alias brr=". $1/utils/brightness.sh"
+alias pro=". $2/supermanager/srcs/projectlocator/pro.sh"
+alias log=". $1/logger/log.sh"
+alias 3gptomp3=". $1/common/3gptomp3.sh"
+alias cmdfu=". $1/common/cmdfu.sh"
+alias countdown=". $1/common/countdown.sh"
+alias recordscreen=". $1/common/recordscreen.sh"
+alias getallpdfs=". $1/downloaders/getallpdfs.sh"
+alias getwebsite=" . $1/downloaders/getwebsite.sh"
+alias tasksync=" . $1/syncs/tasksync.sh"
+
+# print this file
+alias com="cat $1/.aliases"
