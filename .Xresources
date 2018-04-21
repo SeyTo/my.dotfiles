@@ -24,7 +24,7 @@
 # yellow #1cff95
 
 *cursorColor: white
-*cursorColor2: white
+*cursorColor2: black
 *background: #d3e4f1
 *foreground: #0b121c
 # .colorBD: #81f4e1

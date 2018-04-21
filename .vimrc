@@ -132,6 +132,9 @@ python3 del powerline_setup
 " python ycm
 " let g:ycm_python_binary_path = '/usr/bin/python3.6'
 
+" YCM
+let g:ycm_max_num_candidates = 10
+
 " fuzzy find in a dir
 " command Find execute "!find . -type f | fzf | xargs echo $1"
 
@@ -144,6 +147,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " comments
 nnoremap // :call ToggleComment()<cr>
 vnoremap // :call ToggleComment()<cr>
+
+" search for selected text
+vnoremap <C-f> y/<C-R>"<CR>
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
