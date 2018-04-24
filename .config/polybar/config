@@ -1,0 +1,299 @@
+{;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains a lot of information
+;
+;=====================================================
+; find icon name : fc-match -a |grep -i Material
+; to find icon: xfd -fa MaterialIcons,
+; echo "\ueXXX" to print and paste here
+
+;
+; this config is written for an unreleased version (polybar "wip-lemonbar" branch)
+; it might need some tweaking to run on the latest released version... try for yourself
+;
+
+[bar/bar1]
+monitor = VGA1
+width = 1563
+height = 48
+offset-x = 18
+offset-y = 18
+override-redirect = true
+
+background = #aad3e4f1
+foreground = #0b121c
+linecolor = #fff
+
+;border-color = #ee2d2d2d
+;border-top = 0
+;border-top-color = #ccfafafa
+;border-bottom = 0
+;border-bottom-color = #ccfafafa
+;border-left = 50
+;border-left-color = #00ff00
+;border-left = 0
+;border-left-color = #0f0
+;border-right = 0
+;border-right-color = #00f
+
+spacing = 1
+lineheight = 2
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Operator Mono Book:bold:size=12;1
+font-1 = Hack:pixelsize=10;0
+font-2 = Termsynu:size=8;0
+
+modules-left = i3 
+;modules-center = mpd
+modules-right = cpu memory date
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+
+label-active = %icon%
+label-active-background = #ee0f0f0f
+label-active-foreground = #ffffff
+label-active-padding = 4
+
+label-occupied = %icon%
+label-occupied-padding = 2
+
+label-urgent = %icon%
+label-urgent-background = #bd2c40
+label-urgent-padding = 2
+
+label-empty = %icon%
+label-empty-foreground = #444
+label-empty-padding = 2
+
+label-monocle = 
+label-monocle-padding = 2
+label-monocle-background = #171717
+label-monocle-foreground = #2278ff
+
+label-floating = 
+label-floating-padding = 2
+label-floating-background = #171717
+label-floating-foreground = #2278ff
+
+; Separator in between workspaces
+label-separator = -
+label-separator-padding = 2
+label-separator-foreground = #ffb52a
+
+
+
+[module/cpu]
+type = internal/cpu
+interval = 5
+format = <label> <ramp-coreload>
+;label = %{F#666}%{F#cc0b121c} %percentage% %
+
+label = CPU %percentage%%
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+[module/memory]
+type = internal/memory
+interval = 5
+;label = %{F#666}%{F#cc0b121c} %percentage_used% %
+; Available tags:
+;   <label> (default)
+;   <bar-used>
+;   <bar-free>
+;   <ramp-used>
+;   <ramp-free>
+format = <label>
+;format = <label> <bar-used>
+
+; Available tokens:
+;   %percentage_used% (default)
+;   %percentage_free%
+;   %gb_used%
+;   %gb_free%
+;   %gb_total%
+;   %mb_used%
+;   %mb_free%
+;   %mb_total%
+;   %percentage_swap_used%
+;   %percentage_swap_free%
+;   %mb_swap_total%
+;   %mb_swap_free%
+;   %mb_swap_used%
+;   %gb_swap_total%
+;   %gb_swap_free%
+;   %gb_swap_used%
+
+label = RAM %gb_used%/%gb_free%
+
+; Only applies if <bar-used> is used
+;bar-used-indicator =
+;bar-used-width = 50
+;bar-used-foreground-0 = #55aa55
+;bar-used-foreground-1 = #557755
+;bar-used-foreground-2 = #f5a70a
+;bar-used-foreground-3 = #ff5555
+;bar-used-fill = ▐
+;bar-used-empty = ▐
+;bar-used-empty-foreground = #444444
+
+; Only applies if <ramp-used> is used
+;ramp-used-0 = ▁
+;ramp-used-1 = ▂
+;ramp-used-2 = ▃
+;ramp-used-3 = ▄
+;ramp-used-4 = ▅
+;ramp-used-5 = ▆
+;ramp-used-6 = ▇
+;ramp-used-7 = █
+
+; Only applies if <ramp-free> is used
+;ramp-free-0 = ▁
+;ramp-free-1 = ▂
+;ramp-free-2 = ▃
+;ramp-free-3 = ▄
+;ramp-free-4 = ▅
+;ramp-free-5 = ▆
+;ramp-free-6 = ▇
+;ramp-free-7 = █
+
+
+[module/wifi]
+type = internal/network
+interface = net1
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+; label-connected = %essid% %{F#66}%local_ip%
+label-connected = %essid%
+label-disconnected = %{F#666}%{F#ccfafafa} not connected
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = #666
+
+
+[module/wired]
+type = internal/network
+interface = net0
+interval = 3.0
+
+label-connected = %{T3}%local_ip%%{T-}
+label-disconnected = %{T3}Not connected%{T-}
+label-disconnected-foreground = #66
+
+
+[module/date]
+type = internal/date
+;date = %{T3}%%{F#666}%{F#ccfafafa} %Y-%m-%d  %%{F#2278ff}%%{F#ee1d1d1d} %H:%M%%{T-}
+date = %%{F#2278ff}%%{F#cc0b121c} %H:%M
+interval = 5
+
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <ramp> <label>
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = #666
+
+
+[module/volume]
+type = internal/volume
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 9
+
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%
+label-volume-foreground = ${BAR.foreground}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-foreground = #666
+
+label-muted = %{F#666}%{F#ccfafafa} sound muted
+label-muted-foreground = #99
+
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = %{F#666}%{F#ccfafafa}  <label-full>
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = #666
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = #666
+animation-charging-framerate = 750
+
+[module/mpd]
+type = internal/mpd
+
+; format-online = <label-song>  <label-time>  <bar-progress>  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>
+format-online = <label-song>  <label-time>  <icon-repeat> <icon-random>
+format-offline = <label-offline>
+format-offline-foreground = #66
+label-offline = mpd is off
+
+label-song-maxlen = 40
+
+icon-prev = 
+icon-seekb = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+icon-seekf = 
+
+icon-random = 
+icon-repeat = 
+
+toggle-on-foreground = #2278ff
+toggle-off-foreground = #66
+
+bar-progress-width = 15
+bar-progress-indicator = 
+bar-progress-indicator-foreground = #bb
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-foreground = #44
+bar-progress-empty-font = 3
+
+label-time-foreground = #55
+
+; vim:ft=dosini
+
